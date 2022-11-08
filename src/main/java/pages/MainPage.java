@@ -3,10 +3,9 @@ package pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-import static java.time.Duration.ofSeconds;
 
 public class MainPage extends BasePage {
     private final String ONLINER_URL = "https://www.onliner.by/";
@@ -30,9 +29,9 @@ public class MainPage extends BasePage {
     }
 
     public void isDropdownMenuOnAutoFleaMarketVisible(){
-        ELEMENTS_DIVIDED_BY_PRICE.shouldHave(sizeGreaterThan(0),ofSeconds(15));
-        CITIES_FOR_AUTO.shouldHave(sizeGreaterThan(0),ofSeconds(15));
-        CARS.shouldHave(sizeGreaterThan(0),ofSeconds(15));
+        ELEMENTS_DIVIDED_BY_PRICE.filterBy(visible).shouldBe(size(ELEMENTS_DIVIDED_BY_PRICE.size()));
+        CITIES_FOR_AUTO.filterBy(visible).shouldBe(size( CITIES_FOR_AUTO.size()));
+        CARS.filterBy(visible).shouldBe(size(CARS.size()));
     }
 
     public void hoverOnHousesAndFlats(){
@@ -40,9 +39,9 @@ public class MainPage extends BasePage {
     }
 
     public void isDropdownMenuOnHousesAndFlatsVisible(){
-        COUNT_ROOMS.shouldHave(sizeGreaterThan(0),ofSeconds(15));
-        FLAT_PRICE.shouldHave(sizeGreaterThan(0),ofSeconds(15));
-        CITIES_FOR_FLATS.shouldHave(sizeGreaterThan(0),ofSeconds(15));
+        COUNT_ROOMS.filterBy(visible).shouldBe(size(COUNT_ROOMS.size()));
+        FLAT_PRICE.filterBy(visible).shouldBe(size(FLAT_PRICE.size()));
+        CITIES_FOR_FLATS.filterBy(visible).shouldBe(size(CITIES_FOR_FLATS.size()));
     }
 
 }
